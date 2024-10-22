@@ -117,7 +117,7 @@ The schema should match the format of the JSON data you're ingesting.
 
 ## 6. Deploy the Pulsar Function on Astra Streaming
 
-Once the schema is in place, deploy your Pulsar function to Astra Streaming. You can find the function in the release section of this repository. Below is the configuration required for your function.
+Once the schema is in place, deploy your Pulsar function to Astra Streaming. You can find the function in the [release section of this repository](https://github.com/difli/astra-streaming-vectorize-function/releases/tag/v1.0). Below is the configuration required for your function.
 
 ### Function Configuration: `function-config.yaml`
 
