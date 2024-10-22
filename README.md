@@ -237,6 +237,8 @@ print("All JSON messages produced successfully.")
      python ingest_tweets.py
      ```
 
+![Alt text](assets/vector-search.png)
+
 ---
 
 ### Conclusion

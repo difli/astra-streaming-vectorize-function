@@ -1,5 +1,5 @@
-jar: /Users/dieter.flick/Documents/development/workspaces/workspace-pulsar-astra-data-api-sink/astra-dataapi-function/target/astra-dataapi-function-0.0.1-SNAPSHOT.jar  # Path to your function JAR archive
-className: com.datastax.se.AstraDataApiFunction       # The fully qualified class name of your function
+jar: /Users/dieter.flick/Documents/development/workspaces/workspace-pulsar-astra-data-api-sink/astra-streaming-vectorize-function/target/astra-streaming-vectorize-function-0.0.1-SNAPSHOT.jar  # Path to your function JAR archive
+className: com.datastax.se.VectorizeFunction       # The fully qualified class name of your function
 parallelism: 1                                       # Number of parallel instances
 inputs:
   - persistent://streaming-demo/default/tweets-topic        # Input topic
@@ -11,7 +11,7 @@ name: vectorize-function                               # Display name of the Pul
 logTopic: ""   # Topic for function logs (optional, replace or remove as needed)
 userConfig:
   ASTRA_DB_API_ENDPOINT: "https://1279d05d-f29d-4b04-8351-292157e53b5d-us-east-2.apps.astra.datastax.com"
-  ASTRA_DB_APPLICATION_TOKEN: "AstraCS:qAPPLDRJFXzHLOPXSKHZazRz:2f8871ee71f1a27dde031b3c0b6fea78c8fdc87c7806e11bbb3afdc9a8365221"
+  ASTRA_DB_APPLICATION_TOKEN: "<your-token>"
   ASTRA_DB_COLLECTION: "demo"
   ASTRA_DB_KEYSPACE: "default_keyspace"
   ASTRA_DB_VECTORIZE_SERVICE: "nvidia"
