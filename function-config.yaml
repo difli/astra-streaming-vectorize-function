@@ -1,0 +1,21 @@
+jar: /Users/dieter.flick/Documents/development/workspaces/workspace-pulsar-astra-data-api-sink/astra-dataapi-function/target/astra-dataapi-function-0.0.1-SNAPSHOT.jar  # Path to your function JAR archive
+className: com.datastax.se.AstraDataApiFunction       # The fully qualified class name of your function
+parallelism: 1                                       # Number of parallel instances
+inputs:
+  - persistent://streaming-demo/default/tweets-topic        # Input topic
+output: ""   # Output topic (if any, replace with actual output topic or remove if not needed)
+autoAck: true                                        # Enable automatic acknowledgment of message processing
+tenant: streaming-demo                               # Your Pulsar tenant name
+namespace: default                                   # Namespace within the Pulsar tenant
+name: vectorize-function                               # Display name of the Pulsar function
+logTopic: ""   # Topic for function logs (optional, replace or remove as needed)
+userConfig:
+  ASTRA_DB_API_ENDPOINT: "https://1279d05d-f29d-4b04-8351-292157e53b5d-us-east-2.apps.astra.datastax.com"
+  ASTRA_DB_APPLICATION_TOKEN: "AstraCS:qAPPLDRJFXzHLOPXSKHZazRz:2f8871ee71f1a27dde031b3c0b6fea78c8fdc87c7806e11bbb3afdc9a8365221"
+  ASTRA_DB_COLLECTION: "demo"
+  ASTRA_DB_KEYSPACE: "default_keyspace"
+  ASTRA_DB_VECTORIZE_SERVICE: "nvidia"
+  ASTRA_DB_VECTORIZE_MODEL: "NV-Embed-QA"
+  ASTRA_DB_VECTOR_DIMENSION: "1024"
+  ASTRA_DB_VECTORIZE_FIELD: "tweet"
+  logging_level: DEBUG                               # Set the logging level to ERROR

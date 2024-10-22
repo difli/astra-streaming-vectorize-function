@@ -1,0 +1,5 @@
+{
+  "type": "JSON",
+  "schema": "{\"type\":\"record\",\"name\":\"TweetDataSchema\",\"fields\":[{\"name\":\"lang\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"id\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"tweet\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"createdAt\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"sentiment\",\"type\":[\"null\",\"int\"],\"default\":null}]}",
+  "properties": {}
+}

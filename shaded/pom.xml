@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.datastax.se</groupId>
+  <artifactId>astra-dataapi</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>astra-dataapi</name>
+
+  <properties>
+    <slf4j.version>1.7.25</slf4j.version>  
+    <pulsar.version>2.10.6</pulsar.version>
+    <astra-db-java.version>1.5.2</astra-db-java.version>
+    <jackson.version>2.15.0</jackson.version>
+    <maven.compiler.source>17</maven.compiler.source>   
+    <maven.compiler.target>17</maven.compiler.target> 
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.datastax.astra</groupId>
+      <artifactId>astra-db-java</artifactId>
+      <version>${astra-db-java.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Explicitly specify compatible Jackson versions -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.4.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <relocations>
+                <relocation>
+                  <pattern>com.fasterxml</pattern>
+                  <shadedPattern>shaded.com.fasterxml</shadedPattern>
+                </relocation>
+              </relocations>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>org/apache/pulsar/**</exclude>
+                    <exclude>org/slf4j/**</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
