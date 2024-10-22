@@ -122,8 +122,8 @@ Once the schema is in place, deploy your Pulsar function to Astra Streaming. You
 ### Function Configuration: `function-config.yaml`
 
 ```yaml
-jar: /path/to/your/astra-dataapi-function-0.0.1-SNAPSHOT.jar  # Path to your function JAR
-className: com.datastax.se.AstraDataApiFunction                # Fully qualified class name of the function
+jar: /path/to/your/astra-streaming-vectorize-function-0.0.1-SNAPSHOT.jar  # Path to your function JAR
+className: com.datastax.se.VectorizeFunction                # Fully qualified class name of the function
 parallelism: 1                                                 # Number of instances
 inputs:
   - persistent://streaming-demo/default/tweets-topic           # Input topic
